@@ -69,7 +69,7 @@ class NissanConnectVehicleWrapper extends VehicleInternal {
     final NissanConnectBattery battery = await _getVehicle().requestBatteryStatus();
 
     final int percentage =
-      double.tryParse(battery.batteryPercentage.replaceFirst('%', ''))?.round();
+      double.tryParse(battery.batteryPercentage.replaceAll('%', ''));
 
     return saveAndPrependVin(BatteryInfoBuilder()
            .withChargePercentage(percentage ?? -1)
