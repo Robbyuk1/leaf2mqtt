@@ -72,7 +72,7 @@ class NissanConnectVehicleWrapper extends VehicleInternal {
       double.tryParse(battery.batteryPercentage.replaceAll('%', ''));
 
     return saveAndPrependVin(BatteryInfoBuilder()
-           .withChargePercentage(percentage ?? -1)
+           .withChargePercentage(percentage)
            .withConnectedStatus(battery.isConnected)
            .withChargingStatus(battery.isCharging)
            .withCruisingRangeAcOffKm(battery.cruisingRangeAcOffKm)
